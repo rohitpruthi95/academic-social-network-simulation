@@ -1,0 +1,64 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <pthread.h>
+#include <sys/types.h>
+#include <sys/ipc.h>
+#include <sys/msg.h>
+#include <sys/stat.h>
+#include <string.h>
+#include <signal.h>
+#include <sstream>
+#include <queue>
+#include <iostream>
+#define YEAR 31622400
+#define SEM 15811200
+#define MIN 60
+
+#define mp make_pair
+#define pb push_back
+using namespace std;
+struct ms{
+	long int type; 
+	int time;
+	int tid;
+	ms(){type = 11;}
+};
+typedef pair<int,int> PI;
+class mycomparison{
+	bool reverse;
+  public:
+	mycomparison(const bool &revparam=false) {reverse=revparam;}
+	bool operator() (const PI &lhs, const PI &rhs) const {
+	  if (reverse) return (lhs>rhs);
+	  else         return (lhs<rhs);
+	}
+};
+int ts,tc,tf,gt,tg;
+
+int main(int argc, char* argv[])
+{
+	ts = msgget(1,S_IRUSR|S_IWUSR|S_IROTH|S_IWOTH|IPC_CREAT);
+	tc = msgget(3,S_IRUSR|S_IWUSR|S_IROTH|S_IWOTH|IPC_CREAT);
+	tf = msgget(4,S_IRUSR|S_IWUSR|S_IROTH|S_IWOTH|IPC_CREAT);
+	gt = msgget(2,S_IRUSR|S_IWUSR|S_IROTH|S_IWOTH|IPC_CREAT);
+	tg = msgget(5,S_IRUSR|S_IWUSR|S_IROTH|S_IWOTH|IPC_CREAT);
+	pid_t pid = fork();
+	if(pid!=0)   //generator
+	{	ms m,prev;
+		prev.tid == -2; 	
+		while(1){
+			msgrcv(tg,&m,16,11,IPC_NOWAIT);
+			if(m.tid == 0 && (m.tid != prev.tid || m.time != prev.time))cout <<"GOT: " << m.time << " "<< m.tid << endl, prev = m; 
+		}
+	}
+	else	
+	{	
+		ms m;
+		for(int i=0;i<5;i++){
+			m.time = i; m.tid = 0; 
+			msgsnd(tg,&m,16,0); 
+			cout << "SENT: " << " "<< m.time << " " << m.tid << endl;
+		}
+	}
+}

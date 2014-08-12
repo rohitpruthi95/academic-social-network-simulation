@@ -1,0 +1,80 @@
+==10413== Memcheck, a memory error detector
+==10413== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==10413== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==10413== Command: ./generator SocialNetworkEnv.inp
+==10413== 
+==10416== 
+==10416== HEAP SUMMARY:
+==10416==     in use at exit: 0 bytes in 0 blocks
+==10416==   total heap usage: 8 allocs, 8 frees, 18,616 bytes allocated
+==10416== 
+==10416== All heap blocks were freed -- no leaks are possible
+==10416== 
+==10416== For counts of detected and suppressed errors, rerun with: -v
+==10416== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
+==10413== 
+==10413== HEAP SUMMARY:
+==10413==     in use at exit: 486,419 bytes in 5,533 blocks
+==10413==   total heap usage: 1,217,918 allocs, 1,212,385 frees, 1,029,343,215 bytes allocated
+==10413== 
+==10413== 48 bytes in 1 blocks are definitely lost in loss record 2 of 35
+==10413==    at 0x4C2C7A7: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==10413==    by 0x4232E7: updateYear() (in /home/rohit/a/csp/generator)
+==10413==    by 0x422169: generateStudents(std::vector<University*, std::allocator<University*> >, int) (in /home/rohit/a/csp/generator)
+==10413==    by 0x41DBEA: s_thread(void*) (in /home/rohit/a/csp/generator)
+==10413==    by 0x5659F8D: start_thread (pthread_create.c:311)
+==10413==    by 0x5968E1C: clone (clone.S:113)
+==10413== 
+==10413== 4,640 (720 direct, 3,920 indirect) bytes in 30 blocks are definitely lost in loss record 21 of 35
+==10413==    at 0x4C2C7A7: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==10413==    by 0x422D1E: updateYear() (in /home/rohit/a/csp/generator)
+==10413==    by 0x422169: generateStudents(std::vector<University*, std::allocator<University*> >, int) (in /home/rohit/a/csp/generator)
+==10413==    by 0x41DBEA: s_thread(void*) (in /home/rohit/a/csp/generator)
+==10413==    by 0x5659F8D: start_thread (pthread_create.c:311)
+==10413==    by 0x5968E1C: clone (clone.S:113)
+==10413== 
+==10413== 4,824 (216 direct, 4,608 indirect) bytes in 9 blocks are definitely lost in loss record 22 of 35
+==10413==    at 0x4C2C7A7: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==10413==    by 0x422F09: updateYear() (in /home/rohit/a/csp/generator)
+==10413==    by 0x422169: generateStudents(std::vector<University*, std::allocator<University*> >, int) (in /home/rohit/a/csp/generator)
+==10413==    by 0x41DBEA: s_thread(void*) (in /home/rohit/a/csp/generator)
+==10413==    by 0x5659F8D: start_thread (pthread_create.c:311)
+==10413==    by 0x5968E1C: clone (clone.S:113)
+==10413== 
+==10413== 7,121 (120 direct, 7,001 indirect) bytes in 1 blocks are definitely lost in loss record 25 of 35
+==10413==    at 0x4C2C7A7: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==10413==    by 0x41FD8F: readFile(std::string, std::vector<Department*, std::allocator<Department*> >&, std::vector<Course*, std::allocator<Course*> >&, std::vector<University*, std::allocator<University*> >&, int&, int&, int&, int&) (in /home/rohit/a/csp/generator)
+==10413==    by 0x411460: setEnvironment(char*) (in /home/rohit/a/csp/generator)
+==10413==    by 0x41D5EF: main (in /home/rohit/a/csp/generator)
+==10413== 
+==10413== 41,869 (17,280 direct, 24,589 indirect) bytes in 180 blocks are definitely lost in loss record 31 of 35
+==10413==    at 0x4C2C7A7: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==10413==    by 0x411F2C: generateFaculty(University*, Department*, int) (in /home/rohit/a/csp/generator)
+==10413==    by 0x4119B6: generateFaculties(std::vector<University*, std::allocator<University*> >, int) (in /home/rohit/a/csp/generator)
+==10413==    by 0x41D614: main (in /home/rohit/a/csp/generator)
+==10413== 
+==10413== 53,296 (816 direct, 52,480 indirect) bytes in 34 blocks are definitely lost in loss record 33 of 35
+==10413==    at 0x4C2C7A7: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==10413==    by 0x4230F4: updateYear() (in /home/rohit/a/csp/generator)
+==10413==    by 0x422169: generateStudents(std::vector<University*, std::allocator<University*> >, int) (in /home/rohit/a/csp/generator)
+==10413==    by 0x41DBEA: s_thread(void*) (in /home/rohit/a/csp/generator)
+==10413==    by 0x5659F8D: start_thread (pthread_create.c:311)
+==10413==    by 0x5968E1C: clone (clone.S:113)
+==10413== 
+==10413== 374,621 (137,280 direct, 237,341 indirect) bytes in 1,320 blocks are definitely lost in loss record 35 of 35
+==10413==    at 0x4C2C7A7: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==10413==    by 0x4226C3: generateStudent(University*, Department*, int) (in /home/rohit/a/csp/generator)
+==10413==    by 0x422277: generateStudents(std::vector<University*, std::allocator<University*> >, int) (in /home/rohit/a/csp/generator)
+==10413==    by 0x41DBEA: s_thread(void*) (in /home/rohit/a/csp/generator)
+==10413==    by 0x5659F8D: start_thread (pthread_create.c:311)
+==10413==    by 0x5968E1C: clone (clone.S:113)
+==10413== 
+==10413== LEAK SUMMARY:
+==10413==    definitely lost: 156,480 bytes in 1,575 blocks
+==10413==    indirectly lost: 329,939 bytes in 3,958 blocks
+==10413==      possibly lost: 0 bytes in 0 blocks
+==10413==    still reachable: 0 bytes in 0 blocks
+==10413==         suppressed: 0 bytes in 0 blocks
+==10413== 
+==10413== For counts of detected and suppressed errors, rerun with: -v
+==10413== ERROR SUMMARY: 7 errors from 7 contexts (suppressed: 2 from 2)
